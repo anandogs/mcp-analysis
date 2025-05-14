@@ -6,7 +6,9 @@ from typing import Optional, Tuple, List, Dict, Union
 from mcp.server.fastmcp.prompts import base
 import asyncio
 
-mcp = FastMCP("Analyst Tools")
+host = os.getenv("MCP_HOST", "0.0.0.0")
+port = os.getenv("MCP_PORT", 8000)
+mcp = FastMCP("Analyst Tools", host=host, port=port)
 
 @mcp.tool()
 def get_data(metric: str, customer: Optional[str] = None, project: Optional[str] = None) -> Tuple[pd.Series, pd.Series]:
@@ -403,11 +405,4 @@ def financial_performance_review() -> str:
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))
-    asyncio.run(
-        mcp.run_sse_async(
-            host = "0.0.0.0",
-            port = port,
-            log_level="debug",
-        )
-    )
+    mcp.run(transport="streamable-http")
