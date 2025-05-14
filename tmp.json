@@ -1,0 +1,17 @@
+,
+    "Analyst Tools": {
+      "command": "/Users/anandoghose/.pyenv/shims/uv",
+      "args": [
+        "run",
+        "--with",
+        "mcp[cli]",
+        "--with",
+        "pandas>=2.2.3",
+        "--with",
+        "thefuzz>=0.22.1",
+        "mcp",
+        "run",
+        "/Users/anandoghose/Documents/mcp-analysis/analyst-tools.py"
+      ],
+      "cwd": "/Users/anandoghose/Documents/mcp-analysis"
+    }
