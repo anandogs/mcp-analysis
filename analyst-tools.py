@@ -404,6 +404,5 @@ def financial_performance_review() -> str:
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))
-    host = "0.0.0.0"  # Bind to all interfaces, not just localhost
-    mcp.run(host=host, port=port)
+    mcp.run()
+    
